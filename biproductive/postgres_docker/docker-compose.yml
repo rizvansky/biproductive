@@ -1,0 +1,17 @@
+version: "3.1"
+# https://dev.to/mojemoron/how-to-connect-your-django-app-to-a-dockerized-postgresql-and-pgadmin-133o
+services:
+
+  db:
+    restart: always
+    image: postgres
+    container_name: deploy-postgres
+    env_file:
+      - ../biproductive/.env
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+
+volumes:
+  postgres_data:
