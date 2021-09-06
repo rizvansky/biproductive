@@ -9,7 +9,7 @@ Installing docker compose utility for database:
 - ```sudo chmod +x /usr/local/bin/docker-compose```
 - ```docker-compose --version```
 
-Run docker with database: ```cd biproductive/postgres_docker/docker-compose.yml && sudo docker-compose up --build -d```
+Run docker with database: ```sudo docker-compose up --build -d```
 
 Grant sudo to docker: ```sudo usermod -aG docker $USER```
 Not forger to enable and start docker (using systemctl).
