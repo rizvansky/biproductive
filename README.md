@@ -24,3 +24,6 @@ habits, that makes human happy. Each day user enters which actions user made tod
 - run ```docker-compose up --build -d```
 - run ```python biproductive/manage.py runserver```
 
+## Low fidelity prototype of application
+
+![](images/low_fidelity_prototype.png)
