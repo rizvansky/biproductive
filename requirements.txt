@@ -1,3 +1,4 @@
 django
 django-environ
 psycopg2
+pre-commit
