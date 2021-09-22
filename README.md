@@ -1,5 +1,7 @@
 # biproductive
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/1b8fcfb3465a4f02ab9a2d6dc445dfed)](https://app.codacy.com/gh/rizvansky/biproductive?utm_source=github.com&utm_medium=referral&utm_content=rizvansky/biproductive&utm_campaign=Badge_Grade_Settings)
+
 ## Description
 
 This repository created for application BiProductive, needed for analysing habits of person and listing most useful
