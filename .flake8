@@ -1,0 +1,3 @@
+[flake8]
+ignore = D203
+exclude = biproductive/biproductive/settings.py
