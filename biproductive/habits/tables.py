@@ -1,9 +1,15 @@
 from .models import HabitUsage
 import django_tables2 as tables
+import datetime
 
 
-class HabitUsageTable(tables.Table):
-    class Meta:
-        model = HabitUsage
-        template_name = "django_tables2/bootstrap.html"
-        fields = ('habit', 'usage_time',)
+class LastWeekHabitUsageTable(tables.Table):
+    name = tables.Column()
+    day0 = tables.Column()
+    day1 = tables.Column()
+    day2 = tables.Column()
+    day3 = tables.Column()
+    day4 = tables.Column()
+    day5 = tables.Column()
+    day6 = tables.Column()
+
