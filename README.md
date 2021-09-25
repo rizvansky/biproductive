@@ -34,4 +34,12 @@ activity, and program analyses it and make personal recommendation, based on wee
 
 ## Low fidelity prototype of application
 
-![](images/low_fidelity_prototype.png)
+![](docs/low_fidelity_prototype.png)
+
+## High fidelity prototype of application
+
+![](docs/home_page_figma.png)
+![](docs/login_page_figma.png)
+
+## Use case diagram of application
+![](docs/use_case_diagram.jpg)
