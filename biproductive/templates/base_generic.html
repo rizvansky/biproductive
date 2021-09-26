@@ -1,57 +1,143 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-    {% block title %}<title>BiProductive</title>{% endblock %}
-    <meta charset="utf-8">
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
     <meta content="width=device-width, initial-scale=1" name="viewport">
-    <!--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
-    <!--    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>-->
-    <!--    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
+    {% load static %}
+    <link href="{% static 'styles/base.css' %}" rel="stylesheet">
 
-    <!--    &lt;!&ndash; Добавление дополнительного статического CSS файла &ndash;&gt;-->
-    <!--    {% load static %}-->
-    <!--    <link rel="stylesheet" href="{% static 'css/styles.css' %}">-->
+    <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" rel="stylesheet">
+    <script crossorigin="anonymous"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script crossorigin="anonymous"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script crossorigin="anonymous"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
+
 <body>
+<!--This is the header of our page-->
+<nav class="navbar navbar-expand-sm navbar-light bg-light">
+    <a class="navbar-brand" href="{% url 'home' %}">BiProductive</a>
 
-<div class="container-fluid">
+    <div class="collapse navbar-collapse ">
+        <ul class="navbar-nav mr-auto ">
+            <li class="nav-item active">
+                <a class="nav-link" href="{% url 'home' %}">Home</a>
+            </li>
 
-    <div class="row">
-        <div class="col-sm-2">
-            {% block sidebar %}
-            <ul class="sidebar-nav">
-                <li><a href="{% url 'index' %}">Home</a></li>
-                <li><a href="/admin/">Admin panel</a></li>
-            </ul>
-            {% endblock %}
-        </div>
-        <div class="col-sm-10 ">
+            {% if user.is_authenticated %}
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+            </li>
 
+            {% else %}
 
-            {% block content %}{% endblock %}
-            {% block pagination %}
-            {% if is_paginated %}
-            <div class="pagination">
-          <span class="page-links">
-              {% if page_obj.has_previous %}
-                  <a href="{{ request.path }}?page={{ page_obj.previous_page_number }}">previous</a>
-              {% endif %}
-              <span class="page-current">
-                  Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
-              </span>
-              {% if page_obj.has_next %}
-                  <a href="{{ request.path }}?page={{ page_obj.next_page_number }}">next</a>
-              {% endif %}
-          </span>
-            </div>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'login' %}">Login</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'signup' %}">Register</a>
+            </li>
+
             {% endif %}
-            {% endblock %}
-        </div>
+
+
+        </ul>
+        {% if user.is_authenticated %}
+        <span class="navbar-text">
+            Hello, {{ user.username }}!
+        </span>
+        {% endif %}
+
+        <ul class="navbar-nav ml-auto my-2 my-lg-0">
+            <li class="nav-item dropdown">
+                <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle custom-header-button"
+                   data-toggle="dropdown"
+                   href="#" id="navbarDropdown" role="button" style="color: white">
+                    Menu
+                </a>
+                <div aria-labelledby="navbarDropdown" class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="#">Generate report</a>
+                    <a class="dropdown-item" href="#">Test productivity</a>
+                    <a class="dropdown-item" href="#">Add habit</a>
+                </div>
+            </li>
+        </ul>
     </div>
+</nav>
 
 
-</div>
+<main>
+    <!--Main part-->
+    {% block content %}{% endblock %}
+
+</main>
+
+
+<!-- Footer -->
+<nav class="page-footer font-small blue pt-4 custom-footer-color ">
+
+    <!-- Footer Links -->
+    <div class="container-fluid text-center text-md-left">
+
+        <!-- Grid row -->
+        <div class="row">
+
+            <!-- Grid column -->
+            <div class="col-md-6 mt-md-0 mt-3">
+
+                <!-- Content -->
+                <h5 class="text-uppercase">About</h5>
+                <p>BiProductive - fascinating way for analyzing the habits.</p>
+
+            </div>
+            <!-- Grid column -->
+
+            <hr class="clearfix w-100 d-md-none pb-3">
+
+
+            <!-- Grid column -->
+            <div class="col-md-3 mb-md-0 mb-3">
+
+                <!-- Links -->
+                <h5 class="text-uppercase">Contact Us</h5>
+
+                {% load static %}
+                <ul class="list-unstyled">
+                    <li>
+                        <img alt="GitHub logo" src="{% static 'assets/github_logo.png' %}" width="50px">
+                        <a href="https://github.com/rizvansky/biproductive" style="color: white">biproductive</a>
+                    </li>
+                    <li>
+                        <img alt="Email logo" src="{% static 'assets/email_logo.svg' %}" width="50px">
+                        <a href="mailto:s.arslanov@innopolis.university" style="color: white">Mail developer</a>
+                    </li>
+
+                </ul>
+
+            </div>
+            <!-- Grid column -->
+
+        </div>
+        <!-- Grid row -->
+
+    </div>
+    <!-- Footer Links -->
+
+</nav>
+<!-- Footer -->
+
 </body>
+
+
 </html>
