@@ -46,10 +46,8 @@ def logout_view(request):
 def login_view(request):
     if request.method == "POST":
         form = AuthenticationForm(data=request.POST)
-        print("post request")
         # print(f"cleaned data: {form.cleaned_data}")
         if form.is_valid():
-            print("form is valid")
 
             data = form.cleaned_data
 

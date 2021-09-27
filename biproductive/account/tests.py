@@ -53,7 +53,10 @@ class LoginTestCase(TestCase):
         self.username = "ufaiisluntvia"
         self.password = "kneJe^fBgGR#"
 
-        User.objects.create(username=self.username, password=self.password)
+        user = User.objects.create_user(
+            username=self.username, password=self.password, is_active=True
+        )
+        user.save()
         self.assertTrue(User.objects.filter(username=self.username).exists())
 
     def test_can_login(self) -> None:
