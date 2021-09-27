@@ -1,7 +1,7 @@
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import AuthenticationForm
-from django.shortcuts import redirect, render
+from django.shortcuts import render
 
 from .forms import SignUpForm
 
@@ -18,10 +18,13 @@ def signup(request):
             raw_password = form.cleaned_data.get("password1")
             user = authenticate(username=user.username, password=raw_password)
             login(request, user)
-            return redirect("home")
+            return render(request, "home.html", status=200)
+
+        else:
+            return render(request, "signup.html", context={"form": form}, status=401)
     else:
         form = SignUpForm()
-    return render(request, "signup.html", {"form": form})
+    return render(request, "signup.html", {"form": form}, status=200)
 
 
 @login_required(login_url="login")
@@ -33,7 +36,10 @@ def logout_view(request):
     logout(request)
 
     return render(
-        request, "index.html", context={"message": f"{username} has logged out!"}
+        request,
+        "index.html",
+        context={"message": f"{username} has logged out!"},
+        status=200,
     )
 
 
@@ -51,16 +57,26 @@ def login_view(request):
 
             if user is not None:
                 login(request, user)
-                return redirect("home")
+                return render(request, "home.html", status=200)
             else:
                 return render(
                     request,
                     "login.html",
-                    {"form": AuthenticationForm(), "message": "Invalid login"},
+                    {
+                        "form": AuthenticationForm(),
+                        "message": "Invalid login",
+                    },
+                    status=401,
                 )
+        else:
+            return render(
+                request,
+                "login.html",
+                {"form": AuthenticationForm()},
+                status=401,
+            )
 
     else:
         form = AuthenticationForm()
 
     return render(request, "login.html", {"form": form})
-    pass
