@@ -17,7 +17,7 @@ services:
       - PGDATA=/tmp
   web:
     build: .
-    command: python biproductive/manage.py runserver 0.0.0.0:8000
+    command: bash -c 'while !</dev/tcp/db/5432; do sleep 1; done; python biproductive/manage.py runserver 0.0.0.0:8000'
     volumes:
       - .:/biproductive
     ports:
