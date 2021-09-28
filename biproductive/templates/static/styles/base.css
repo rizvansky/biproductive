@@ -1,0 +1,44 @@
+.custom-header-button {
+  background-color: #52ab98;
+}
+
+.custom-footer-color {
+  background-color: #2b6777;
+  color: #ffffff;
+}
+
+html, body {
+  margin: 0;
+  height: 100%;
+  min-height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+header,
+footer {
+  flex: none;
+}
+
+main {
+  -webkit-overflow-scrolling: touch;
+  flex: auto;
+  background-color: #c8d8e4;
+}
+
+.custom-list-size {
+  width: 50%;
+}
+
+.page-container {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.main-container {
+  flex: 1;
+}

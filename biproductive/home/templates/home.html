@@ -1,0 +1,28 @@
+{% extends "base_generic.html" %}
+
+{% block title %} Home page {% endblock %}
+
+{% block content %}
+
+<!--Main part-->
+
+
+<div class="modal-body row">
+    <div class="col-md-6 text-center">
+        <!-- Your first column here -->
+        <h2>Habit statistics of last days</h2>
+
+        <!--            <table id="habit_table"></table>-->
+        <!--               TODO(add table)-->
+    </div>
+    <div class="col-md-6 text-center">
+        <h2>Change of brain activity during last days</h2>
+
+        <div class="chart-container" style="position: relative; height:20vh; width:40vw">
+            <!--                <canvas id="brainChart"></canvas>-->
+            <!--                TODO(add drawing from database)-->
+        </div>
+    </div>
+</div>
+
+{% endblock %}
