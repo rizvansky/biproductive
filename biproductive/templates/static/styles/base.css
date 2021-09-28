@@ -1,17 +1,10 @@
-/*.button {*/
-/*    background-color: red;*/
-/*    color: black;*/
-/*    font-size: 20px;*/
-/*    border: none;*/
-
-
 .custom-header-button {
-    background-color: #52AB98;
+    background-color: #52ab98;
 }
 
 
 .custom-footer-color {
-    background-color: #2B6777;
+    background-color: #2b6777;
     color: #ffffff;
 }
 
@@ -34,7 +27,7 @@ footer {
 main {
     -webkit-overflow-scrolling: touch;
     flex: auto;
-    background-color: #C8D8E4;
+    background-color: #c8d8e4;
 }
 
 .custom-list-size {
