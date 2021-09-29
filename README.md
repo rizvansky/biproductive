@@ -27,10 +27,10 @@ activity, and program analyses it and make personal recommendation, based on wee
 
 ## How to launch the application
 
--  rename .env.example to .env and fulfill the variables.
--  put .env file to ```biproductive/biproductive/biproductive/.env``` path
--  run ```docker-compose up --build -d```
--  run ```python biproductive/manage.py runserver```
+-  go to the project folder
+-  rename .env.example to .env and fulfill the variables
+-  put .env file to ```biproductive/biproductive/.env``` path
+-  run ```docker-compose up --build```
 
 ## Low fidelity prototype of application
 
