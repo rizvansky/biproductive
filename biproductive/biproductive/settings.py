@@ -30,7 +30,7 @@ SECRET_KEY = env("SECRET_KEY")
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    "127.0.0.1",
+    "0.0.0.0"
 ]
 
 # Application definition
@@ -85,8 +85,8 @@ DATABASES = {
         "NAME": "postgres",
         "USER": env("POSTGRES_USER"),
         "PASSWORD": env("POSTGRES_PASSWORD"),
-        "HOST": "localhost",
-        "PORT": env("POSTGRES_PORT"),
+        "HOST": "db",
+        "PORT": env("POSTGRES_PORT")
     }
 }
 CSRF_COOKIE_SECURE = True
