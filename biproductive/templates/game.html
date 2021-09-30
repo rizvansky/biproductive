@@ -1,0 +1,11 @@
+{% extends "base_generic.html" %}
+
+{% block title %} Index page {% endblock %}
+
+{% block content %}
+
+{% if message %}<h1>{{ message }}</h1> {% endif %}
+Permission: {{ permission }}
+{% endblock %}
+
+
