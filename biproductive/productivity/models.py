@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 
 
 class ProductivityCheck(models.Model):
-    date = models.DateTimeField()
+    date = models.DateField()
     productivity_value = models.IntegerField()
 
     user = models.ForeignKey(User, on_delete=models.CASCADE)
