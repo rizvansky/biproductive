@@ -2,10 +2,12 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import AuthenticationForm
 from django.shortcuts import render
+from django.views.decorators.csrf import csrf_exempt
 
 from .forms import SignUpForm
 
 
+@csrf_exempt
 def signup(request):
     if request.method == "POST":
         form = SignUpForm(request.POST)
@@ -28,6 +30,7 @@ def signup(request):
 
 
 @login_required(login_url="login")
+@csrf_exempt
 def logout_view(request):
     username = "No idea"
     if request.user.is_authenticated:
@@ -43,6 +46,7 @@ def logout_view(request):
     )
 
 
+@csrf_exempt
 def login_view(request):
     if request.method == "POST":
         form = AuthenticationForm(data=request.POST)
