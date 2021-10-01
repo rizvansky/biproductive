@@ -1,0 +1,18 @@
+{% extends "base_generic.html" %}
+
+{% block title %} Index page {% endblock %}
+
+{% block content %}
+
+{% if message %}<h1>{{ message }}</h1> {% endif %}
+Permission: {{ permission }}
+
+    <form action="" method="post">
+    {% csrf_token %}
+        <input class="form-control form-control-lg"
+               name="score" id="score" type="number"/>
+    <button class="btn btn-success btn-block btn-lg gradient-custom-4 text-body" type="submit"> Submit </button>
+    </form>
+{% endblock %}
+
+
