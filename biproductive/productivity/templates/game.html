@@ -1,0 +1,78 @@
+{% extends "base_generic.html" %}
+
+{% load static %}
+
+{% block title %} Productivity check {% endblock %}
+
+{% block content %}
+<!--Main part-->
+<section class="main">
+    <div class="box play"></div>
+    <div class="box play"></div>
+    <div class="box play"></div>
+    <div class="box play"></div>
+    <div class="box play"></div>
+    <div class="box play"></div>
+    <div class="box play"></div>
+    <div class="box play"></div>
+    <div class="box play"></div>
+    <div class="box play"></div>
+    <div class="box play"></div>
+    <div class="box play"></div>
+    <div class="box play"></div>
+    <div class="box play"></div>
+    <div class="box play"></div>
+    <div class="box play"></div>
+    <div class="box play"></div>
+    <div class="box play"></div>
+    <div class="box play"></div>
+    <div class="box play"></div>
+
+    <div id="state">
+        <span id="time">0</span>
+        <span id="score">0</span>
+    </div>
+</section>
+
+<section class="" id="pre">
+    <div id="themes">
+        Chose your theme !
+        <p class="themes" id="pokemon" title="Pokemon">Pokemon</p>
+        <p class="themes" id="starwars" title="Star Wars">Star Wars</p>
+        <p class="themes" id="lotr" title="Lord of the Ring">Lord of the Ring</p>
+        <p class="themes" id="disney" title="Disney">Disney</p>
+        <p class="themes" id="pixar" title="Pixar">Pixar</p>
+        <p class="themes" id="harrypotter" title="Harry Potter">Harry Potter</p>
+    </div>
+</section>
+
+
+<section class="hidden" id="post">
+    <div style="text-align: center">
+        <p>BRAVO !</p>
+        <p id="final"></p>
+        <br>
+        <p>
+            <a href="{% url 'home' %}" id="again">Go home!</a>
+        </p>
+    </div>
+</section>
+
+
+<!--    <footer>-->
+<!--        <p>Created by <a href="https://remybeumier.be" target="_blank">Rémy Beumier</a></p>-->
+<!--    </footer>-->
+
+<script src="{% static 'scripts/game.js' %}" type="text/javascript"></script>
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
