@@ -4,7 +4,11 @@
 
 {% block content %}
 
-{% if message %}<h1>{{ message }}</h1> {% endif %}
-<h2>Please login to use this application</h2>
+{% if message %}
+<div style="text-align: center">
+    <h1>{{ message }}</h1>
+</div>
+
+{% endif %}
 
 {% endblock %}

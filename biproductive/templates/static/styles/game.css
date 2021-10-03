@@ -146,7 +146,7 @@ footer p a:hover {
 }
 
 .hidden {
-  display: none;
+  display: none !important;
 }
 
 .show {
