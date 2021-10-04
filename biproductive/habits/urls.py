@@ -4,5 +4,6 @@ from . import views
 
 app_name = 'habits'
 urlpatterns = [
-    path('', views.IndexView.as_view()),
+    path('', views.week_habit_usage),
+    path('add_habit/', views.add_habit),
 ]

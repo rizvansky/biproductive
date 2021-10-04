@@ -11,7 +11,7 @@ def last_week_days(today: datetime.datetime):
     return dates
 
 
-def load_last_week_habit_usage():
+def load_last_week_habit_usage(habits):
     today = datetime.datetime.today()
     days = last_week_days(today)
     data = []
