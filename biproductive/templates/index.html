@@ -1,5 +1,10 @@
 {% extends "base_generic.html" %}
 
+{% block title %} Index page {% endblock %}
+
 {% block content %}
-<p>This is home page!</p>
+
+{% if message %}<h1>{{ message }}</h1> {% endif %}
+<h2>Please login to use this application</h2>
+
 {% endblock %}

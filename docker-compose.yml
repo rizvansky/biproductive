@@ -1,17 +1,26 @@
-version: "3.1"
-# https://dev.to/mojemoron/how-to-connect-your-django-app-to-a-dockerized-postgresql-and-pgadmin-133o
+version: "3.3"
 services:
-
   db:
-    restart: always
     image: postgres
     container_name: deploy-postgres
+    restart: always
     env_file:
       - biproductive/biproductive/.env
     ports:
       - "5432:5432"
     volumes:
-      - postgres_data:/var/lib/postgresql/data/
-
-volumes:
-  postgres_data:
+      - ./postgres_data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - PGDATA=/tmp
+  web:
+    build: .
+    command: bash -c 'while !</dev/tcp/db/5432; do sleep 1; done; python biproductive/manage.py makemigrations; python biproductive/manage.py migrate; python biproductive/manage.py runserver 0.0.0.0:8000'
+    volumes:
+      - .:/biproductive
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
