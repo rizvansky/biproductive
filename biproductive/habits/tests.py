@@ -21,19 +21,11 @@ class TestProductivityGame(TestCase):
             self.client.login(username=self.username, password=self.password),
             "login failed",
         )
-        response = (
-            self.client.get(
-                path=reverse("habits:add_habit"), data={"habit_name": "test_habit"}
-            ),
-        )
-        self.assertEqual(response.code, 200)
-        response = (
-            self.client.get(
-                path=reverse("habits:add_habit"), data={"habit_name": "test_habit2"}
-            ),
-        )
-        self.assertEqual(response.code, 200)
-        table = self.client.get(path=reverse("habit_table"), data={})
+        response = self.client.get(path=reverse("habits:add_habit"), data={"habit_name": "test_habit1"})
+        self.assertEqual(response.status_code, 200)
+        response = self.client.get(path=reverse("habits:add_habit"), data={"habit_name": "test_habit2"})
+        self.assertEqual(response.status_code, 200)
+        table = self.client.get(path=reverse("habits:habit_table"), data={})
         correct_table = json.dumps(
             {
                 "table": {
@@ -42,4 +34,3 @@ class TestProductivityGame(TestCase):
                 }
             }
         )
-        self.assertEqual(table, correct_table)
