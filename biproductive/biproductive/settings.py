@@ -15,7 +15,6 @@ from pathlib import Path
 import environ
 
 env = environ.Env()
-environ.Env.read_env()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -24,14 +23,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = env("SECRET_KEY")
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 ALLOWED_HOSTS = [
     "0.0.0.0",
-    "127.0.0.1"
+    "127.0.0.1",
+    "biproductive.herokuapp.com"
 ]
 
 # Application definition
@@ -43,9 +43,10 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "home",
-    "account",
-    "productivity",
+    "biproductive.home",
+    "biproductive.account",
+    "biproductive.productivity",
+    "whitenoise.runserver_nostatic"
 ]
 
 MIDDLEWARE = [
@@ -56,9 +57,10 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware"
 ]
 
-ROOT_URLCONF = "biproductive.urls"
+ROOT_URLCONF = "biproductive.biproductive.urls"
 
 TEMPLATES = [
     {
@@ -83,14 +85,15 @@ WSGI_APPLICATION = "biproductive.wsgi.application"
 # https://medium.com/@rudipy/how-to-connecting-postgresql-with-a-django-application-f479dc949a11
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.postgresql_psycopg2",
-        "NAME": "postgres",
-        "USER": env("POSTGRES_USER"),
-        "PASSWORD": env("POSTGRES_PASSWORD"),
-        "HOST": "db",
-        "PORT": env("POSTGRES_PORT")
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": os.environ.get('DB_NAME'),
+        "HOST": os.environ.get('DB_HOST'),
+        "PORT": os.environ.get('DB_PORT'),
+        "USER": os.environ.get('DB_USER'),
+        "PASSWORD": os.environ.get('DB_PASSWORD')
     }
 }
+
 CSRF_COOKIE_SECURE = True
 SESSION_COOKIE_SECURE = False
 
@@ -130,10 +133,16 @@ USE_TZ = True
 
 STATIC_URL = "/templates/static/"
 
+STATIC_ROOT = os.path.join(BASE_DIR,  'static')
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+
 # Add static file directory
-STATICFILES_DIRS = (os.path.join(BASE_DIR, "templates", "static"),)
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'templates', 'static'),
+)
