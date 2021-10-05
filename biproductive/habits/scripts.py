@@ -11,11 +11,12 @@ def last_week_days(today: datetime.datetime):
     return dates
 
 
-def load_last_week_habit_usage(habits):
+def load_last_week_habit_usage(user):
+    habits = Habit.objects.filter(user=user)
     today = datetime.datetime.today()
     days = last_week_days(today)
     data = []
-    for habit in Habit.objects.all():
+    for habit in habits:
         row = {'name': habit.habit_name}
         for i, day in enumerate(days):
             if habit.habitusage_set.filter(usage_time__date=day):
