@@ -4,8 +4,10 @@ from django.contrib.auth.models import User
 from django.test import TestCase
 from django.urls import reverse
 
+from .scripts import load_last_week_habit_usage
 
-class TestProductivityGame(TestCase):
+
+class TestHabitTable(TestCase):
     def setUp(self) -> None:
         self.username = "testUser"
         self.email = "testUser"
@@ -21,16 +23,9 @@ class TestProductivityGame(TestCase):
             self.client.login(username=self.username, password=self.password),
             "login failed",
         )
-        response = self.client.get(path=reverse("habits:add_habit"), data={"habit_name": "test_habit1"})
+        response = self.client.post(path=reverse("habits:add_habit"), data={"habit_name": "test_habit1"})
         self.assertEqual(response.status_code, 200)
-        response = self.client.get(path=reverse("habits:add_habit"), data={"habit_name": "test_habit2"})
+        response = self.client.post(path=reverse("habits:add_habit"), data={"habit_name": "test_habit2"})
         self.assertEqual(response.status_code, 200)
-        table = self.client.get(path=reverse("habits:habit_table"), data={})
-        correct_table = json.dumps(
-            {
-                "table": {
-                    "test_habit1": ["-", "-", "-", "-", "-", "-", "-"],
-                    "test_habit2": ["-", "-", "-", "-", "-", "-", "-"],
-                }
-            }
-        )
+        table = load_last_week_habit_usage(self.user)
+        self.assertEqual(len(table), 2)
