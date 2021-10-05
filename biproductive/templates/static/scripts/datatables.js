@@ -10,5 +10,6 @@ console.log(columns)
 $('#habit_table').DataTable({
     data: table_data,
     columns,
+    responsive: true
 
 });
