@@ -32,11 +32,3 @@ def add_habit(request):
         )
         habit.save()
         return JsonResponse({}, status=200)
-
-
-@login_required(login_url="login")
-def week_habit_usage(request):
-    habits = Habit.objects.filter(user=request.user)
-    week_usage = load_last_week_habit_usage(habits)
-    return JsonResponse({'table': week_usage}, status=200)
-
