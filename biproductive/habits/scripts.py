@@ -16,12 +16,12 @@ def load_last_week_habit_usage(user):
     today = datetime.datetime.today()
     days = last_week_days(today)
     data = []
-    for habit in habits:
-        row = {'name': habit.habit_name}
-        for i, day in enumerate(days):
+    for i, day in enumerate(days):
+        row = {'date': f'{day}'}
+        for habit in habits:
             if habit.habitusage_set.filter(usage_time__date=day):
-                row[f'day{i}'] = '+'
+                row[f'{habit}'] = 'yes'
             else:
-                row[f'day{i}'] = '-'
+                row[f'{habit}'] = 'no'
         data.append(row)
     return data
