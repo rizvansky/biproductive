@@ -1,0 +1,9 @@
+{% if habit_list %}
+    <ul>
+    {% for habit in habit_list %}
+        <li>{{ habit.habit_name }}</li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No habits are available.</p>
+{% endif %}
