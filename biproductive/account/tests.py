@@ -22,7 +22,7 @@ class RegisterTestCase(TestCase):
             },
         )
 
-        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.url, reverse("home"))
 
         user = auth.get_user(self.client)
         self.assertTrue(user.is_authenticated)
@@ -65,7 +65,7 @@ class LoginTestCase(TestCase):
             data={"username": self.username, "password": self.password},
         )
 
-        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.url, reverse("home"))
         user = auth.get_user(self.client)
         self.assertTrue(user.is_authenticated)
 

@@ -1,7 +1,7 @@
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import AuthenticationForm
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.views.decorators.csrf import csrf_exempt
 
 from .forms import SignUpForm
@@ -20,7 +20,7 @@ def signup(request):
             raw_password = form.cleaned_data.get("password1")
             user = authenticate(username=user.username, password=raw_password)
             login(request, user)
-            return render(request, "home.html", status=200)
+            return redirect("home")
 
         else:
             return render(request, "signup.html", context={"form": form}, status=401)
@@ -59,7 +59,7 @@ def login_view(request):
 
             if user is not None:
                 login(request, user)
-                return render(request, "home.html", status=200)
+                return redirect("home")
             else:
                 return render(
                     request,
