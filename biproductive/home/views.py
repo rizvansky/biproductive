@@ -1,6 +1,7 @@
+import json
+
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
-import json
 
 from habits.scripts import load_last_week_habit_usage
 from productivity.scripts import load_last_week_productivity_checks
@@ -14,7 +15,8 @@ def home_view(request):
         request=request,
         template_name="home.html",
         context={
-            'brain-chart': json.dumps(week_productivity),
-            'habit_table_data': json.dumps(week_habit_usage),
-            'habit_names': list(week_habit_usage[0].keys()),
-        })
+            "brain_chart": json.dumps(week_productivity),
+            "habit_table_data": json.dumps(week_habit_usage),
+            "habit_names": list(week_habit_usage[0].keys()),
+        },
+    )

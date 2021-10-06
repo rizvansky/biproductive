@@ -1,7 +1,5 @@
-import json
 from datetime import datetime
 
-from django.views import generic
 from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
 from django.shortcuts import render, redirect
@@ -10,14 +8,6 @@ from django.views.decorators.csrf import csrf_exempt
 
 from .models import Habit
 from .forms import AddHabitForm
-
-
-class IndexView(generic.ListView):
-    template_name = 'habits/index.html'
-
-    def get_queryset(self):
-        return Habit.objects.all()
-
 
 @csrf_exempt
 @login_required(login_url="login")
