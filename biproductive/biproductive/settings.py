@@ -10,20 +10,21 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 import os
+import environ
 from pathlib import Path
 
-import environ
-
 env = environ.Env()
+environ.Env.read_env()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('SECRET_KEY')
+SECRET_KEY = os.environ.get('SECRET_KEY') if os.environ.get('HEROKU') else env('SECRET_KEY')
+DB_NAME = os.environ.get('DB_NAME') if os.environ.get('HEROKU') else 'postgres'
+DB_HOST = os.environ.get('DB_HOST') if os.environ.get('HEROKU') else 'db'
+DB_PORT = os.environ.get('DB_PORT') if os.environ.get('HEROKU') else env('POSTGRES_PORT')
+DB_USER = os.environ.get('DB_USER') if os.environ.get('HEROKU') else env('POSTGRES_USER')
+DB_PASSWORD = os.environ.get('DB_PASSWORD') if os.environ.get('HEROKU') else env('POSTGRES_PASSWORD')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -43,9 +44,9 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "biproductive.home",
-    "biproductive.account",
-    "biproductive.productivity",
+    "home",
+    "account",
+    "productivity",
     "whitenoise.runserver_nostatic"
 ]
 
@@ -60,7 +61,7 @@ MIDDLEWARE = [
     "whitenoise.middleware.WhiteNoiseMiddleware"
 ]
 
-ROOT_URLCONF = "biproductive.biproductive.urls"
+ROOT_URLCONF = "biproductive.urls"
 
 TEMPLATES = [
     {
@@ -83,14 +84,15 @@ WSGI_APPLICATION = "biproductive.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 # https://medium.com/@rudipy/how-to-connecting-postgresql-with-a-django-application-f479dc949a11
+
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": os.environ.get('DB_NAME'),
-        "HOST": os.environ.get('DB_HOST'),
-        "PORT": os.environ.get('DB_PORT'),
-        "USER": os.environ.get('DB_USER'),
-        "PASSWORD": os.environ.get('DB_PASSWORD')
+        "NAME": DB_NAME,
+        "HOST": DB_HOST,
+        "PORT": DB_PORT,
+        "USER": DB_USER,
+        "PASSWORD": DB_PASSWORD
     }
 }
 

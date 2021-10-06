@@ -1,1 +1,1 @@
-web: gunicorn biproductive.biproductive.wsgi --log-file -
+web: sh -c 'cd biproductive && gunicorn biproductive.wsgi --log-file -'
