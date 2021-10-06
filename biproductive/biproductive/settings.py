@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "home",
     "account",
+    "habits",
     "productivity",
     "whitenoise.runserver_nostatic"
 ]
