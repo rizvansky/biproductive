@@ -25,7 +25,7 @@ class TestProductivityGame(TestCase):
             "login failed",
         )
         response = self.client.get(path=reverse("game"), data={})
-        self.assertTrue(response.status_code, 200)
+        self.assertEqual(response.status_code, 200)
 
     def test_already_played(self):
         productivity = ProductivityCheck.objects.create(
@@ -38,7 +38,7 @@ class TestProductivityGame(TestCase):
             "login failed",
         )
         response = self.client.get(path=reverse("game"), data={})
-        self.assertTrue(response.status_code, 403)
+        self.assertEqual(response.status_code, 403)
 
     def test_not_logged_in(self):
         response = self.client.get(path=reverse("game"), data={})
@@ -56,4 +56,4 @@ class TestProductivityGame(TestCase):
         self.assertEqual(response.status_code, HTTPStatus.OK)
 
         response = self.client.get(path=reverse("game"), data={})
-        self.assertTrue(response.status_code, HTTPStatus.FORBIDDEN)
+        self.assertEqual(response.status_code, HTTPStatus.FORBIDDEN)
