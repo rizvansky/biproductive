@@ -1,9 +1,9 @@
-import pandas as pd
 import numpy as np
-import os
+import pandas as pd
 
 from habits.scripts import load_last_n_days_habit_usage
 from productivity.scripts import load_last_n_days_productivity_checks
+
 
 def discretize_correlation(coefficient: np.float64):
     if coefficient > 0.8:
@@ -25,7 +25,4 @@ def correlation(user):
     correlation_df = pd.DataFrame(correlation_df, columns=['Correlation'])
     correlation_df.index.name = 'Habit'
     correlation_df['Correlation'] = correlation_df['Correlation'].apply(discretize_correlation)
-    os.makedirs('home/data', exist_ok=True)
-    productivity.to_csv('home/data/productivity.csv', index=False)
-    habit_usage.to_csv('home/data/habits.csv', index=False)
-    correlation_df.to_csv('home/data/correlation.csv')
+    return habit_usage, productivity, correlation_df
