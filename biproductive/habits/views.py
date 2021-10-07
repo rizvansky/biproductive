@@ -1,7 +1,7 @@
 from datetime import datetime
 
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.views.decorators.csrf import csrf_exempt
 
 from .forms import AddHabitForm
@@ -19,12 +19,7 @@ def add_habit(request):
                 habit_name=habit_name, user=request.user, creation_date=datetime.now()
             )
             habit.save()
-            return render(
-                request,
-                "add_habit.html",
-                context={"message": f"Habit {habit.habit_name} successfully added!"},
-                status=200,
-            )
+            return redirect("home")
         else:
             return render(request, "add_habit.html", context={"form": form}, status=401)
     else:
