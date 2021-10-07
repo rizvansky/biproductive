@@ -2,7 +2,7 @@ from django.contrib.auth.models import User
 from django.test import TestCase
 from django.urls import reverse
 
-from .scripts import load_last_week_habit_usage
+from .scripts import load_last_n_days_habit_usage
 
 
 class TestHabitTable(TestCase):
@@ -21,14 +21,12 @@ class TestHabitTable(TestCase):
             self.client.login(username=self.username, password=self.password),
             "login failed",
         )
-        response = self.client.post(
-            path=reverse("habits:add_habit"), data={"habit_name": "test_habit1"}
-        )
-        self.assertEqual(response.status_code, 200)
-        response = self.client.post(
-            path=reverse("habits:add_habit"), data={"habit_name": "test_habit2"}
-        )
-        self.assertEqual(response.status_code, 200)
-        table = load_last_week_habit_usage(self.user)
+
+        response = self.client.post(path=reverse("habits:add_habit"), data={"habit_name": "test_habit1"})
+        self.assertEqual(response.url, '/home/')
+        response = self.client.post(path=reverse("habits:add_habit"), data={"habit_name": "test_habit2"})
+        self.assertEqual(response.url, '/home/')
+        table = load_last_n_days_habit_usage(self.user, 7)
+
         self.assertEqual(len(table), 7)
         self.assertEqual(len(list(table[0].keys())), 3)

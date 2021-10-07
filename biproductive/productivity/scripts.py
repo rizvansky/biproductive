@@ -1,21 +1,10 @@
-import datetime
-
+from utils import last_n_days
 from .models import ProductivityCheck
 
 
-def last_week_days(today: datetime.datetime):
-    dates = []
-    for i in range(7):
-        delta = datetime.timedelta(days=6 - i)
-        day = (today - delta).date()
-        dates.append(day)
-    return dates
-
-
-def load_last_week_productivity_checks(user):
+def load_last_n_days_productivity_checks(user, n: int):
     checks = ProductivityCheck.objects.filter(user=user)
-    today = datetime.datetime.today()
-    days = last_week_days(today)
+    days = last_n_days(n)
     data = {"date": list(map(str, days)), "brain-activity": []}
     for i, day in enumerate(days):
         if checks.filter(date=day):

@@ -3,14 +3,14 @@ import json
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 
-from habits.scripts import load_last_week_habit_usage
-from productivity.scripts import load_last_week_productivity_checks
+from productivity.scripts import load_last_n_days_productivity_checks
+from habits.scripts import load_last_n_days_habit_usage
 
 
 @login_required(login_url="login")
 def home_view(request):
-    week_habit_usage = load_last_week_habit_usage(request.user)
-    week_productivity = load_last_week_productivity_checks(request.user)
+    week_habit_usage = load_last_n_days_habit_usage(request.user, n=7)
+    week_productivity = load_last_n_days_productivity_checks(request.user, n=7)
     return render(
         request=request,
         template_name="home.html",
