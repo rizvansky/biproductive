@@ -37,12 +37,13 @@
 
 {% block scripts %}
     {{ block.super }}
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script type="text/javascript" src="{% static 'scripts/brain-activity-chart.js' %}"></script>
 
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.11.3/datatables.min.css"/>
 
     <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.11.3/datatables.min.js"></script>
     <script type="text/javascript" src="{% static 'scripts/datatables.js' %}"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script type="text/javascript" src="{% static 'scripts/brain-activity-chart.js' %}"></script>
 {% endblock %}
