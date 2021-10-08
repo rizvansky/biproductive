@@ -5,7 +5,7 @@ from django.shortcuts import redirect, render
 from django.views.decorators.csrf import csrf_exempt
 
 from .forms import AddHabitForm, HabitTrackingForm
-from .models import Habit
+from .models import Habit, HabitUsage
 
 
 @csrf_exempt
@@ -26,16 +26,21 @@ def add_habit(request):
         form = AddHabitForm()
     return render(request, "add_habit.html", {"form": form}, status=200)
 
+
 @csrf_exempt
 @login_required(login_url="login")
 def track_habits(request):
     if request.method == 'POST':
         form = HabitTrackingForm(request.user, request.POST)
-
         if form.is_valid():
-            print(form.cleaned_data.items())
-
-        return redirect('habits:track_habits')
+            for item in form.cleaned_data.items():
+                if item[1] == 'True':
+                    habit = Habit.objects.filter(user=request.user, habit_name=item[0])[0]
+                    usage = HabitUsage(habit=habit, usage_time=datetime.now())
+                    usage.save()
+            return redirect('home')
+        else:
+            return render(request, "habits:track_habits", context={"form": form}, status=401)
     else:
         form = HabitTrackingForm(request.user)
-    return render(request, "track_habits.html", {'form': form}, status=200)
+        return render(request, "track_habits.html", {'form': form}, status=200)
