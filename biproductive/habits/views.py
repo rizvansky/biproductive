@@ -4,7 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, render
 from django.views.decorators.csrf import csrf_exempt
 
-from .forms import AddHabitForm
+from .forms import AddHabitForm, HabitTrackingForm
 from .models import Habit
 
 
@@ -25,3 +25,12 @@ def add_habit(request):
     else:
         form = AddHabitForm()
     return render(request, "add_habit.html", {"form": form}, status=200)
+
+
+def track_habits(request):
+    if request.method == 'POST':
+        form = HabitTrackingForm(request.POST)
+        return redirect('habits:track_habits')
+    else:
+        form = HabitTrackingForm(request.user)
+    return render(request, "track_habits.html", {'form': form}, status=200)
