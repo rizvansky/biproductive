@@ -7,3 +7,4 @@ pathlib
 seaborn
 tabulate
 md2pdf
+matplotlib
