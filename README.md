@@ -12,6 +12,8 @@ BiProductive allows the user to analyze their performance together with habit us
 habit. Each day user enters which actions they performed today (sport activity, playing music, etc.), test his brain
 activity, and program analyses it and make personal recommendation, based on weekly results.
 
+- The application is deployed on Heroku: https://biproductive.herokuapp.com
+
 ## Authors
 
 -  Shamil Arslanov, Rizvan Iskaliev, Maxim Faleev
@@ -26,20 +28,7 @@ activity, and program analyses it and make personal recommendation, based on wee
 -  html, css as a front-end for web-application
 
 ## How to launch the application
-
--  rename .env.example to .env and fulfill the variables.
--  put .env file to ```biproductive/biproductive/biproductive/.env``` path
--  run ```docker-compose up --build -d```
--  run ```python biproductive/manage.py runserver```
-
-## Low fidelity prototype of application
-
-![](docs/low_fidelity_prototype.png)
-
-## High fidelity prototype of application
-
-![](docs/home_page_figma.png)
-![](docs/login_page_figma.png)
-
-## Use case diagram of application
-![](docs/use_case_diagram.jpg)
+-  go to the project folder
+-  rename .env.example to .env and fulfill the variables
+-  put .env file to ```biproductive/biproductive/.env``` path
+-  run ```docker-compose up --build```

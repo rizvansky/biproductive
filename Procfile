@@ -1,0 +1,1 @@
+web: sh -c 'cd biproductive && python manage.py makemigrations && python manage.py migrate && gunicorn biproductive.wsgi --log-file -'

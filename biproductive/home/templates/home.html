@@ -1,0 +1,49 @@
+{% extends "base_generic.html" %}
+{% load static %}
+{% block title %} Home page {% endblock %}
+
+
+
+{% block content %}
+
+    <!--Main part-->
+    {{ brain_chart|json_script:"brain_chart" }}
+    {{ habit_table_data|json_script:'habit_table_data' }}
+
+    <div class="modal-body row">
+        <div class="col-md-6 text-center">
+            <!-- Your first column here -->
+            <h2>Habit statistics of last days</h2>
+            <table id="habit_table">
+                <thead>
+                <tr>
+                    {% for name in habit_names %}
+                        <th>{{ name }} </th>
+                    {% endfor %}
+                </tr>
+                </thead>
+            </table>
+        </div>
+        <div class="col-md-6 text-center">
+            <h2>Change of brain activity during last days</h2>
+
+            <div class="chart-container" style="position: relative; height:20vh; width:40vw">
+                <canvas id="brainChart"></canvas>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block scripts %}
+    {{ block.super }}
+
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.11.3/datatables.min.css"/>
+
+    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.11.3/datatables.min.js"></script>
+    <script type="text/javascript" src="{% static 'scripts/datatables.js' %}"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script type="text/javascript" src="{% static 'scripts/brain-activity-chart.js' %}"></script>
+{% endblock %}

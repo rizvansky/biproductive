@@ -17,8 +17,14 @@ from django.contrib import admin
 from django.urls import include, path
 from django.views.generic import RedirectView
 
+from report_generator.views import download_view
+
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("home/", include("home.urls")),
+    path('habits/', include("habits.urls")),
     path("", RedirectView.as_view(url="/home/", permanent=True)),
+    path("account/", include("account.urls")),
+    path("productivity/", include("productivity.urls")),
+    path('report/', download_view, name='report')
 ]

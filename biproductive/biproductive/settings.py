@@ -10,9 +10,8 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 import os
-from pathlib import Path
-
 import environ
+from pathlib import Path
 
 env = environ.Env()
 environ.Env.read_env()
@@ -20,17 +19,20 @@ environ.Env.read_env()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = env("SECRET_KEY")
+SECRET_KEY = os.environ.get('SECRET_KEY') if os.environ.get('HEROKU') else env('SECRET_KEY')
+DB_NAME = os.environ.get('DB_NAME') if os.environ.get('HEROKU') else 'postgres'
+DB_HOST = os.environ.get('DB_HOST') if os.environ.get('HEROKU') else 'db'
+DB_PORT = os.environ.get('DB_PORT') if os.environ.get('HEROKU') else env('DB_PORT')
+DB_USER = os.environ.get('DB_USER') if os.environ.get('HEROKU') else env('DB_USER')
+DB_PASSWORD = os.environ.get('DB_PASSWORD') if os.environ.get('HEROKU') else env('DB_PASSWORD')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 ALLOWED_HOSTS = [
+    "0.0.0.0",
     "127.0.0.1",
+    "biproductive.herokuapp.com"
 ]
 
 # Application definition
@@ -43,6 +45,10 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "home",
+    "account",
+    "habits",
+    "productivity",
+    "whitenoise.runserver_nostatic"
 ]
 
 MIDDLEWARE = [
@@ -53,6 +59,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware"
 ]
 
 ROOT_URLCONF = "biproductive.urls"
@@ -78,18 +85,20 @@ WSGI_APPLICATION = "biproductive.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 # https://medium.com/@rudipy/how-to-connecting-postgresql-with-a-django-application-f479dc949a11
+
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.postgresql_psycopg2",
-        "NAME": "postgres",
-        "USER": env("POSTGRES_USER"),
-        "PASSWORD": env("POSTGRES_PASSWORD"),
-        "HOST": "localhost",
-        "PORT": env("POSTGRES_PORT"),
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": DB_NAME,
+        "HOST": DB_HOST,
+        "PORT": DB_PORT,
+        "USER": DB_USER,
+        "PASSWORD": DB_PASSWORD
     }
 }
+
 CSRF_COOKIE_SECURE = True
-SESSION_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = False
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -125,9 +134,18 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
-STATIC_URL = "/static/"
+STATIC_URL = "/templates/static/"
+
+STATIC_ROOT = os.path.join(BASE_DIR,  'static')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+
+# Add static file directory
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'templates', 'static'),
+)

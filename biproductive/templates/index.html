@@ -1,5 +1,14 @@
 {% extends "base_generic.html" %}
 
+{% block title %} Index page {% endblock %}
+
 {% block content %}
-<p>This is home page!</p>
+
+{% if message %}
+<div style="text-align: center">
+    <h1>{{ message }}</h1>
+</div>
+
+{% endif %}
+
 {% endblock %}
