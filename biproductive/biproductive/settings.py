@@ -22,9 +22,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('SECRET_KEY') if os.environ.get('HEROKU') else env('SECRET_KEY')
 DB_NAME = os.environ.get('DB_NAME') if os.environ.get('HEROKU') else 'postgres'
 DB_HOST = os.environ.get('DB_HOST') if os.environ.get('HEROKU') else 'db'
-DB_PORT = os.environ.get('DB_PORT') if os.environ.get('HEROKU') else env('POSTGRES_PORT')
-DB_USER = os.environ.get('DB_USER') if os.environ.get('HEROKU') else env('POSTGRES_USER')
-DB_PASSWORD = os.environ.get('DB_PASSWORD') if os.environ.get('HEROKU') else env('POSTGRES_PASSWORD')
+DB_PORT = os.environ.get('DB_PORT') if os.environ.get('HEROKU') else env('DB_PORT')
+DB_USER = os.environ.get('DB_USER') if os.environ.get('HEROKU') else env('DB_USER')
+DB_PASSWORD = os.environ.get('DB_PASSWORD') if os.environ.get('HEROKU') else env('DB_PASSWORD')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True

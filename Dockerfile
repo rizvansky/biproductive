@@ -2,7 +2,6 @@ FROM python:3.9-slim
 ENV PYTHONUNBUFFERED=1
 WORKDIR /biproductive
 
-
 # Install weasyprint dependencies
 RUN apt-get update && \
     apt-get install -y \
