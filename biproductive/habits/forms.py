@@ -1,5 +1,5 @@
 from django import forms
-from django.forms import Select, RadioSelect
+from django.forms import RadioSelect
 
 from .models import Habit
 
@@ -14,8 +14,7 @@ class HabitTrackingForm(forms.Form):
         habits = Habit.objects.filter(user=user)
         for i in range(len(habits)):
             field_name = habits[i].habit_name
-            self.fields[field_name] = forms.BooleanField(
-                widget=RadioSelect(
-                    choices=[(True, 'Yes'), (False, 'No')]
-                )
+            self.fields[field_name] = forms.ChoiceField(
+                widget=RadioSelect(),
+                choices=[('True', 'Yes'), ('False', 'No')],
             )

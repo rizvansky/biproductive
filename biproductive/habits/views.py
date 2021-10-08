@@ -26,10 +26,15 @@ def add_habit(request):
         form = AddHabitForm()
     return render(request, "add_habit.html", {"form": form}, status=200)
 
-
+@csrf_exempt
+@login_required(login_url="login")
 def track_habits(request):
     if request.method == 'POST':
-        form = HabitTrackingForm(request.POST)
+        form = HabitTrackingForm(request.user, request.POST)
+
+        if form.is_valid():
+            print(form.cleaned_data.items())
+
         return redirect('habits:track_habits')
     else:
         form = HabitTrackingForm(request.user)
