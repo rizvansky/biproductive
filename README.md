@@ -32,6 +32,3 @@ activity, and program analyses it and make personal recommendation, based on wee
 -  rename .env.example to .env and fulfill the variables
 -  put .env file to ```biproductive/biproductive/.env``` path
 -  run ```docker-compose up --build```
-
-## Low fidelity prototype of application
-![](images/low_fidelity_prototype.png)
