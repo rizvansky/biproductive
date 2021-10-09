@@ -1,0 +1,62 @@
+{% extends "base_generic.html" %}
+
+{% block title %} Sign Up {% endblock %}
+
+{% block content %}
+
+    {% if message %}<h1>{{ message }}</h1> {% endif %}
+
+    <section class="vh-100 bg-image main-container">
+        <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+            <div class="container h-100">
+                <div class="row d-flex justify-content-center align-items-center h-100">
+                    <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+                        <div class="card" style="border-radius: 15px;">
+                            <div class="card-body p-5">
+                                <h2 class="text-uppercase text-center mb-5">Fill habits</h2>
+
+                                <form action="" method="post">
+                                    {% csrf_token %}
+                                    {{ form.non_field_errors }}
+
+                                    {% for field in form %}
+
+                                        <fieldset class="form-group">
+                                            <div class="row">
+                                                <legend class="col-form-label col-sm-2 pt-0">{{ field.name }}</legend>
+                                                <div class="col-sm-10">
+                                                    {% for radio in field %}
+                                                        {{ radio }}
+                                                        {#                                                        <div class="form-check">#}
+                                                        {#                                                            <input class="form-check-input" type="radio" name="{{ field.name }}"  id="{{ radio.id_for_label }}" value="{{ radio.na }}">#}
+                                                        {#                                                            <label class="form-check-label" for="{{ radio.id_for_label }}">{{ radio.choice_label }} </label>#}
+                                                        {#                                                        </div>#}
+
+                                                    {% endfor %}
+                                                </div>
+                                            </div>
+                                        </fieldset>
+
+                                    {% endfor %}
+
+
+                                    <div class="d-flex justify-content-center">
+                                        <button class="btn btn-success btn-block btn-lg gradient-custom-4 text-body"
+                                                type="submit">
+                                            Mark habits!
+                                        </button>
+                                    </div>
+
+
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+{% endblock %}
