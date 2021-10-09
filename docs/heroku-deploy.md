@@ -1,12 +1,11 @@
 ## How to deploy to the Heroku
-- Register on Heroku if you are not registered (https://signup.heroku.com/) 
-- Install required packages with ```pip install -r requirements.txt```
+- Register on Heroku if you are not registered (https://signup.heroku.com/)
 - Install Heroku CLI (https://devcenter.heroku.com/articles/heroku-cli)
 - Login to Heroku terminal by ```heroku login```
 - Create heroku app by ```heroku create``` or ```heroku create <app_name>``` for custom name of the application
 - Run ```heroku git:remote -a <app_name>```
 - Open ```settings.py``` file and modify ```ALLOWED_HOSTS``` by adding ```<app_name.herokuapp.com>```
-- Commit changes
+- Commit changes by ```git commit -m <commit_message>```
 - Create PostgreSQL database on Heroku by ```heroku addons:create heroku-postgresql:hobby-dev```
 - Go to ```https://dashboard.heroku.com/apps/<app_name>/settings``` and click on the ```Reveal Config Vars``` and copy 
   the ```DATABASE URL```. It has the following structure: 
