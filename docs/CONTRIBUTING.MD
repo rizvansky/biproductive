@@ -1,0 +1,13 @@
+# How to contribute
+- Create the fork of this repository
+- Clone your fork by ```git clone <your_fork_url>```
+- Go to the cloned repository directory
+- Check that your fork is the ```origin``` remote by running ```git remote -v``` and checking that the URL of your fork is next to the word ```origin```
+- Add this project repository to the ```upstream``` remote by ```git remote add upstream https://github.com/rizvansky/biproductive.git```
+- Create a new branch from ```dev``` branch
+- Fix or create and implement a new feature in your branch
+- Follow the code style of the project anc comment the code you write
+- Modify the documentation as needed
+- Commit your changes. Write meaningful commit message
+- Push your branch to your fork on GitHub (to the ```origin```)
+- Go to your fork's GitHub page and open the pull request to the ```dev``` branch

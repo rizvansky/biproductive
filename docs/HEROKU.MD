@@ -1,4 +1,4 @@
-## How to deploy to the Heroku
+# How to deploy to the Heroku
 - Register on Heroku if you are not registered (https://signup.heroku.com/)
 - Install Heroku CLI (https://devcenter.heroku.com/articles/heroku-cli)
 - Login to Heroku terminal by ```heroku login```
