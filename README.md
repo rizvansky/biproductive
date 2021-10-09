@@ -6,14 +6,10 @@
 [![MIT License][license-shield]][license-url]
 
 ## Description
-This repository created for application BiProductive, needed for analyzing habits of the person and listing most useful
-habits, that makes human happy. Each day user enters which actions the user made today (sports activity, playing music, 
-etc.), tests his brain activity, and the program analyzes it and makes a personal recommendation, based on weekly 
-results.
-
-BiProductive allows the user to analyze their performance together with habit usage to evaluate the effect of each
-habit. Each day user enters which actions they performed today (sports activity, playing music, etc.), test his brain
-activity, and the program analyzes it and make a personal recommendation, based on weekly results.
+This repository contains the application BiProductive, which analyzes the habits of the person, tests his productivity, 
+and defines dependencies between habits and productivity. Each day user enters the actions they made today (sports 
+activity, meditation, smoking, etc.) and tests their brain performance. Then the application computes the correlation 
+between habits and user's performance, and makes personal recommendations.
   - This project is deployed on Heroku: https://biproductive.herokuapp.com.
 
 ## How to deploy the application
@@ -38,7 +34,7 @@ activity, and the program analyzes it and make a personal recommendation, based 
 ## RUP Artifact
 [Here](https://docs.google.com/document/d/14AMeCV4WJotkQ8lvZcl2u_bB66lMKmu4/edit?usp=sharing&ouid=109541784549585358096&rtpof=true&sd=true) 
 is the link to the RUP Artifact where you can find the list of stakeholders and their roles, functional and 
-nonfunctional requirements, planned features, and other design specifications.
+non-functional requirements planned features, and other design specifications.
 
 ## Contributing
 We appreciate all contributions. If you are planning to contribute back bug-fixes, please do so without any further 
