@@ -58,5 +58,5 @@ The original BiProductive code contributors can be found in [AUTHORS.MD](./docs/
 [stars-url]: https://github.com/rizvansky/biproductive/stargazers
 [issues-shield]: https://img.shields.io/github/issues/rizvansky/biproductive.svg?style=flat&logo=appveyor
 [issues-url]: https://github.com/rizvansky/biproductive/issues
-[license-shield]: https://img.shields.io/github/license/rizvansky/biproductive.svg?style=flat&logo=appveyor
+[license-shield]: https://img.shields.io/github/license/rizvansky/biproductive.svg?style=flat
 [license-url]: https://github.com/rizvansky/biproductive/blob/main/LICENSE
