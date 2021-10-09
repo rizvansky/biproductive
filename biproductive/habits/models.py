@@ -14,8 +14,9 @@ class Habit(models.Model):
 
 class HabitUsage(models.Model):
     usage_time = models.DateTimeField()
+    status = models.BooleanField(default=False)
 
     habit = models.ForeignKey(Habit, on_delete=models.CASCADE)
 
     def __str__(self):
-        return f"{self.habit} usage: {self.usage_time}"
+        return f"{self.habit} usage: {self.usage_time}, status {self.status}"

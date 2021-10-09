@@ -29,7 +29,7 @@ def generate_md_report(path_dir: Path, user):
     habit_table, productivity_table, corr = correlation(user)
     plt.figure(figsize=(6, 3))
     plt.tight_layout()
-    plt.xticks(rotation=10)
+    plt.xticks(rotation=20)
     fig = sns.lineplot(data=productivity_table, x='date', y='brain-activity')
     plot_path = str(path_dir / 'plot.png')
     fig.figure.savefig(plot_path)

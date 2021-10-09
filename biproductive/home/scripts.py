@@ -20,7 +20,7 @@ def correlation(user):
     habit_usage = pd.DataFrame(habit_usage)
     productivity = load_last_n_days_productivity_checks(user, 7)
     productivity = pd.DataFrame(productivity)
-    binary_habit_usage = habit_usage.replace(['yes', 'no'], [1, 0])
+    binary_habit_usage = habit_usage.replace(['+', '-', ' '], [1, 0, np.NaN])
     correlation_df = binary_habit_usage.corrwith(productivity)
     correlation_df = pd.DataFrame(correlation_df, columns=['Correlation'])
     correlation_df.index.name = 'Habit'
