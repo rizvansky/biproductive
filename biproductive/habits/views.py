@@ -36,11 +36,15 @@ def track_habits(request):
             for item in form.cleaned_data.items():
                 if item[1] == 'True':
                     habit = Habit.objects.filter(user=request.user, habit_name=item[0])[0]
-                    usage = HabitUsage(habit=habit, usage_time=datetime.now())
+                    usage = HabitUsage(habit=habit, usage_time=datetime.now(), status=True)
+                    usage.save()
+                elif item[1] == 'False':
+                    habit = Habit.objects.filter(user=request.user, habit_name=item[0])[0]
+                    usage = HabitUsage(habit=habit, usage_time=datetime.now(), status=False)
                     usage.save()
             return redirect('home')
         else:
-            return render(request, "habits:track_habits", context={"form": form}, status=401)
+            return render(request, "track_habits.html", context={"form": form}, status=401)
     else:
         form = HabitTrackingForm(request.user)
         return render(request, "track_habits.html", {'form': form}, status=200)
