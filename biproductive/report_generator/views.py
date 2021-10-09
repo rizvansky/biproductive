@@ -28,10 +28,10 @@ def download_file(request, file_path):
 def generate_md_report(path_dir: Path, user):
     habit_table, productivity_table, corr = correlation(user)
     plt.figure(figsize=(6, 3))
-    plt.tight_layout()
     plt.xticks(rotation=20)
     fig = sns.lineplot(data=productivity_table, x='date', y='brain-activity')
     plot_path = str(path_dir / 'plot.png')
+    plt.tight_layout()
     fig.figure.savefig(plot_path)
 
     with open(path_dir / "output.md", 'w') as file:

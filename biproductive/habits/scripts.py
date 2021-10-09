@@ -1,5 +1,7 @@
+import datetime
+
 from utils import last_n_days
-from .models import Habit
+from .models import Habit, HabitUsage
 
 
 def load_last_n_days_habit_usage(user, n: int):
@@ -17,3 +19,14 @@ def load_last_n_days_habit_usage(user, n: int):
                 row[f"{habit}"] = ' '
         data.append(row)
     return data
+
+
+def track_habits_specified_day(user, day: datetime.date, fill: str):
+    habits = Habit.objects.filter(user=user)
+    for habit, status in zip(habits, fill):
+        if status == ' ':
+            continue
+        else:
+            status = (status == '+')
+            usage = HabitUsage(usage_time=day, status=status, habit=habit)
+            usage.save()
