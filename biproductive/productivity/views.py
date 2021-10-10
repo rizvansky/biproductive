@@ -33,5 +33,4 @@ def productivity(request):
             user=user, productivity_value=score, date=date.today()
         )
         check.save()
-        print(f"check: {check}")
         return JsonResponse({}, status=200)

@@ -12,9 +12,9 @@ from .scripts import correlation
 
 @login_required(login_url="login")
 def home_view(request):
-    # track_habits_specified_day(request.user, datetime.date.today() - datetime.timedelta(5), '-+ ')
-    # add_productivity_specified_day(request.user, datetime.date.today() - datetime.timedelta(5), 50)
-    # correlation(request.user)
+    track_habits_specified_day(request.user, datetime.date.today() - datetime.timedelta(1), '+-+')
+    add_productivity_specified_day(request.user, datetime.date.today() - datetime.timedelta(1), 62)
+    correlation(request.user)
     week_habit_usage = load_last_n_days_habit_usage(request.user, n=7)
     week_productivity = load_last_n_days_productivity_checks(request.user, n=7)
     return render(
