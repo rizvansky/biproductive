@@ -97,7 +97,7 @@ During the development of our project we have configured git pre-commit checks, 
 ## Code coverage
 
 Code coverage of our web-application - 86%. The application was tested locally with python package - `coverage`.
-Generated report and instruction how to test are described in [code-coverage.md](docs/code-coverage.md).
+Generated report and instruction how to test are described in [COVERAGE.md](docs/COVERAGE.md).
 
 ## The BiProductive team
 
