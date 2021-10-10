@@ -5,8 +5,8 @@ console.log("columns", columns)
 for (let column in table_data[0]) {
     columns.push({data: column})
 }
-columns.reverse()
-console.log("now reversed")
+// columns.reverse()
+// console.log("now reversed")
 $('#habit_table').DataTable({
     data: table_data,
     columns: columns,
