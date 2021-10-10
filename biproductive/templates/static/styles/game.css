@@ -29,7 +29,7 @@ header {
   }
 }
 
-/* !* main SECTION *!*/
+/* !* main SECTION *! */
 .main {
   margin: 70px auto;
   background: white;
@@ -37,7 +37,6 @@ header {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-
 }
 
 @media only screen and (min-width: 768px) {

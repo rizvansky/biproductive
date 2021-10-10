@@ -4,7 +4,7 @@ WORKDIR /biproductive
 
 # Install weasyprint dependencies
 RUN apt-get update && \
-    apt-get install -y \
+    apt-get install -y --no-install-recommends \
       python3-dev \
       python3-pip \
       python3-cffi \
@@ -13,7 +13,8 @@ RUN apt-get update && \
       libgdk-pixbuf2.0-0 \
       libffi-dev \
       shared-mime-info && \
-    apt-get -y clean
+      apt-get -y clean && \
+      rm -rf /var/lib/apt/lists/*
 COPY requirements.txt /biproductive/
 RUN pip install -r requirements.txt
 COPY . /biproductive/
