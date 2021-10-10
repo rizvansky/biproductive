@@ -60,7 +60,6 @@ We organized business logic of application into 4 main components/modules:
 In the storage layer we have used 2 databased:
 
 -   Habit history database, that stores user's tracking habits and their usage.
-
 -   Productivity history database, that tracks user's everyday brain activity.
 
 ![](docs/dynamic-view-updated.png)
@@ -70,11 +69,12 @@ In the storage layer we have used 2 databased:
 
 -   Locally
     -   You should have Docker and Docker Compose installed.
-
+        
     -   Go to the project folder.
-
-    -   Rename .env.example to .env and fill the ```SECRET_KEY``` environment variable. For example, you can use (https://djecrety.ir) to generate the secret key.
-      
+        
+    -   Rename .env.example to .env and fill the ```SECRET_KEY``` environment variable. 
+        For example, you can use (https://djecrety.ir) to generate the secret key.
+        
     -   Put .env file to ```./biproductive/biproductive``` directory.
         
     -   Run ```docker-compose up --build```.
