@@ -12,7 +12,7 @@ and defines dependencies between habits and productivity. Each day user enters t
 activity, meditation, smoking, etc.) and tests their brain performance. Then the application computes the correlation
 between habits and user's performance, and makes personal recommendations.
 
--   This project is deployed on Heroku: https://biproductive.herokuapp.com.
+-  This project is deployed on Heroku: https://biproductive.herokuapp.com.
 -   The video with demo is available 
     [here](https://drive.google.com/file/d/1q6ioV4W50Un--JNKLv6IV0rFbHXYZwCy/view?usp=sharing).
   
