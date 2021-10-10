@@ -78,6 +78,11 @@ During the development of our project we have configured git pre-commit checks, 
 - `black` - Python code formatter
 - `flake8` - combination of various code refactor tools like `pyflakes`, `pycodestyle`, checks for code styles.
 
+## Code coverage
+
+Code coverage of our web-application - 86%. The application was tested locally with python package - `coverage`.
+Generated report and instruction how to test are described in [code-coverage.md](docs/code-coverage.md).
+
 ### Special Thanks To
 
 [Rémy Beumier](https://github.com/beumsk) - developer of the
