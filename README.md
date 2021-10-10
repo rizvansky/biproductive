@@ -13,6 +13,10 @@ activity, meditation, smoking, etc.) and tests their brain performance. Then the
 between habits and user's performance, and makes personal recommendations.
 
 - This project is deployed on Heroku: https://biproductive.herokuapp.com.
+- The video with demo is available 
+  [here](https://drive.google.com/file/d/1q6ioV4W50Un--JNKLv6IV0rFbHXYZwCy/view?usp=sharing).
+  
+![1](./docs/demo.gif)
 
 ## Functionality of our application
 
@@ -43,6 +47,7 @@ between habits and user's performance, and makes personal recommendations.
     - If you want to deploy this application on your own Heroku host, read [HEROKU.MD](docs/HEROKU.MD).
 
 ## Stack of technologies
+
 - Django
 - PostgreSQL
 - JavaScript
@@ -50,6 +55,7 @@ between habits and user's performance, and makes personal recommendations.
 - Bootstrap
 
 ## RUP Artifact
+
 [Here](https://docs.google.com/document/d/14AMeCV4WJotkQ8lvZcl2u_bB66lMKmu4/edit?usp=sharing&ouid=109541784549585358096&rtpof=true&sd=true) 
 is the link to the RUP Artifact where you can find the list of stakeholders and their roles, functional and 
 non-functional requirements planned features, and other design specifications.
@@ -57,6 +63,7 @@ non-functional requirements planned features, and other design specifications.
 Also, you can see the design development history [here](./docs/DESIGN_DEVELOPMENT.MD).
 
 ## Contributing
+
 We appreciate all contributions. If you are planning to contribute back bug-fixes, please do so without any further
 discussion.
 
@@ -65,10 +72,6 @@ discuss the feature with us. Sending a PR without discussion might end up result
 taking the core in a different direction than you might be aware of.
 
 Check the [CONTRIBUTING.MD](./docs/CONTRIBUTING.MD) to learn more about making a contribution to our project.
-
-## The BiProductive team
-
-The original BiProductive code contributors can be found in [AUTHORS.MD](./docs/AUTHORS.MD).
 
 ## Used linters in our project
 
@@ -82,6 +85,10 @@ During the development of our project we have configured git pre-commit checks, 
 
 Code coverage of our web-application - 86%. The application was tested locally with python package - `coverage`.
 Generated report and instruction how to test are described in [code-coverage.md](docs/code-coverage.md).
+
+## The BiProductive team
+
+The original BiProductive code contributors can be found in [AUTHORS.MD](./docs/AUTHORS.MD).
 
 ### Special Thanks To
 
