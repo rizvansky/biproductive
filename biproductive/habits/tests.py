@@ -21,9 +21,11 @@ class TestHabitTable(TestCase):
             self.client.login(username=self.username, password=self.password),
             "login failed",
         )
-        response = self.client.post(path=reverse("habits:add_habit"), data={"habit_name": "test_habit1"})
+        response = self.client.post(path=reverse("habits:add_habit"),
+                                    data={"habit_name": "test_habit1"})
         self.assertEqual(response.url, '/home/')
-        response = self.client.post(path=reverse("habits:add_habit"), data={"habit_name": "test_habit2"})
+        response = self.client.post(path=reverse("habits:add_habit"),
+                                    data={"habit_name": "test_habit2"})
         self.assertEqual(response.url, '/home/')
         response = self.client.get(path=reverse("habits:track_habits"))
         self.assertEqual(response.status_code, 200)

@@ -1,6 +1,7 @@
 import datetime
 
 from utils import last_n_days
+
 from .models import ProductivityCheck
 
 
@@ -24,4 +25,3 @@ def add_productivity_specified_day(user, day: datetime.date, value: int):
     else:
         check = ProductivityCheck(user=user, date=day, productivity_value=value)
         check.save()
-
