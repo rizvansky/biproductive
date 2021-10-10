@@ -1,6 +1,7 @@
 import datetime
 
 from utils import last_n_days
+
 from .models import Habit, HabitUsage
 
 

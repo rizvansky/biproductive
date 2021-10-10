@@ -1,11 +1,12 @@
-import json
 import datetime
+import json
 
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
-
-from productivity.scripts import load_last_n_days_productivity_checks, add_productivity_specified_day
 from habits.scripts import load_last_n_days_habit_usage, track_habits_specified_day
+from productivity.scripts import load_last_n_days_productivity_checks, \
+    add_productivity_specified_day
+
 from .scripts import correlation
 
 
