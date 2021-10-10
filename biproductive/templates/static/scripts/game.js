@@ -268,9 +268,7 @@ function gameLogic(e) {
                     e.preventDefault();
                     finalElt.innerHTML = "You won " + score + " points <br> in " + time + " seconds";
 
-                    postScore("/productivity/", {"prod_score": score}).then((data) => {
-                        console.log("");
-                    })
+                    postScore("/productivity/", {"prod_score": score}).then((data) => {})
                     postElt.classList.remove("hidden");
                 }
             }

@@ -12,7 +12,7 @@ class HabitTrackingForm(forms.Form):
     def __init__(self, user, *args, **kwargs):
         super().__init__(*args, **kwargs)
         habits = Habit.objects.filter(user=user)
-        for i in range(len(habits)):
+        for i, _ in enumerate(habits):
             field_name = habits[i].habit_name
             self.fields[field_name] = forms.ChoiceField(
                 widget=RadioSelect(),

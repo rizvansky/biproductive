@@ -13,6 +13,7 @@ activity, meditation, smoking, etc.) and tests their brain performance. Then the
 between habits and user's performance, and makes personal recommendations.
 
 -   This project is deployed on Heroku: https://biproductive.herokuapp.com.
+    
 -   The video with demo is available 
     [here](https://drive.google.com/file/d/1q6ioV4W50Un--JNKLv6IV0rFbHXYZwCy/view?usp=sharing).
   
@@ -30,26 +31,33 @@ between habits and user's performance, and makes personal recommendations.
     sending report by email each week).
     
 -   You can add as many habits as you want for tracking them.
+    
 -   During the day or at the end of the day you can mark habits you completed and not completed (e.x. Swimming - Yes,
     Smoking - No) only once a day (no refilling can be done).
     
 -   Once a day (preferably in the evening) you can test how well your brain works after the day by playing a memory game.
+    
 -   So, data about the brain activity after the day and statistics of habit usage could provide personal recommendations
     about habits (which habits increase brain activity, which not).
 
 ## How to deploy the application
 
 -   Locally
-    - You should have Docker and Docker Compose installed.
-    - Go to the project folder.
-    - Rename .env.example to .env and fill the ```SECRET_KEY``` environment variable. For example, you can use
-      https://djecrety.ir) to generate the secret key.
+    -   You should have Docker and Docker Compose installed.
+       
+    -   Go to the project folder.
       
-    - Put .env file to ```./biproductive/biproductive``` directory.
-    - Run ```docker-compose up --build```.
-    - An application will be launched at ```0.0.0.0:8000``` address.
+    -   Rename .env.example to .env and fill the ```SECRET_KEY``` environment variable. For example, you can use
+        https://djecrety.ir) to generate the secret key.
+      
+    -   Put .env file to ```./biproductive/biproductive``` directory.
+        
+    -   Run ```docker-compose up --build```.
+        
+    -   An application will be launched at ```0.0.0.0:8000``` address.
+    
 -   Heroku
-    - If you want to deploy this application on your own Heroku host, read [HEROKU.MD](docs/HEROKU.MD).
+    -   If you want to deploy this application on your own Heroku host, read [HEROKU.MD](docs/HEROKU.MD).
 
 ## Stack of technologies
 
