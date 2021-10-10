@@ -30,25 +30,51 @@ between habits and user's performance, and makes personal recommendations.
 -   Also, on request, you can request from the system weekly report with analysis of his habits (in future we will add
     sending report by email each week).
     
--   You can add as many habits as you want for tracking them.
-    
--   During the day or at the end of the day you can mark habits you completed and not completed (e.x. Swimming - Yes,
-    Smoking - No) only once a day (no refilling can be done).
-    
--   Once a day (preferably in the evening) you can test how well your brain works after the day by playing a memory game.
-    
--   So, data about the brain activity after the day and statistics of habit usage could provide personal recommendations
-    about habits (which habits increase brain activity, which not).
+- You can add as many habits as you want for tracking them.
+
+- During the day or at the end of the day you can mark habits you completed and not completed (e.x. Swimming - Yes,
+  Smoking - No) only once a day (no refilling can be done).
+
+- Once a day (preferably in the evening) you can test how well your brain works after the day by playing a memory game.
+
+- So, data about the brain activity after the day and statistics of habit usage could provide personal recommendations
+  about habits (which habits increase brain activity, which not).
+
+## Main components of our application
+
+We deployed our project or Heroku, so as a web server that handles client requests we used `gunicorn`.
+
+We organized business logic of application into 4 main components/modules:
+
+- User habit tracker - django application that is responsible for tracking habits (user can start tracking his habit by
+  adding it and each day at the special form mark the habit completed or not (e.x. did you read a book today or not).
+
+- Productivity testing tool - small django application with javascript game that aims to track everyday brain activity
+  after completing (or not completing) habit activities.
+
+- Habit analyzer tool - ML application that calculates how well habits affects your brain.
+
+- Report generation tool - wraps data, received from habit analyzer, and prepares a small pdf report with charts &
+  tables.
+
+In the storage layer we have used 2 databased:
+
+- Habit history database, that stores user's tracking habits and their usage.
+
+- Productivity history database, that tracks user's everyday brain activity.
+
+![](docs/dynamic-view-updated.png)
+*Dynamic view, describing main components of our application (static/dynamic view can be found in our artifact)*
 
 ## How to deploy the application
 
--   Locally
-    -   You should have Docker and Docker Compose installed.
-       
-    -   Go to the project folder.
-      
-    -   Rename .env.example to .env and fill the ```SECRET_KEY``` environment variable. For example, you can use
-        https://djecrety.ir) to generate the secret key.
+- Locally
+    - You should have Docker and Docker Compose installed.
+
+    - Go to the project folder.
+
+    - Rename .env.example to .env and fill the ```SECRET_KEY``` environment variable. For example, you can use
+      https://djecrety.ir) to generate the secret key.
       
     -   Put .env file to ```./biproductive/biproductive``` directory.
         
