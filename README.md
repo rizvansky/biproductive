@@ -55,25 +55,39 @@ is the link to the RUP Artifact where you can find the list of stakeholders and 
 non-functional requirements planned features, and other design specifications.
 
 ## Contributing
-We appreciate all contributions. If you are planning to contribute back bug-fixes, please do so without any further 
+We appreciate all contributions. If you are planning to contribute back bug-fixes, please do so without any further
 discussion.
 
-If you plan to contribute new features, utility functions, or extensions to the core, please first open an issue and 
+If you plan to contribute new features, utility functions, or extensions to the core, please first open an issue and
 discuss the feature with us. Sending a PR without discussion might end up resulting in a rejected PR because we might be
 taking the core in a different direction than you might be aware of.
 
 Check the [CONTRIBUTING.MD](./docs/CONTRIBUTING.MD) to learn more about making a contribution to our project.
 
 ## The BiProductive team
+
 The original BiProductive code contributors can be found in [AUTHORS.MD](./docs/AUTHORS.MD).
-### Special Thanks To  
-[Rémy Beumier](https://github.com/beumsk) - developer of the 
+
+## Used linters in our project
+
+During the development of our project we have configured git pre-commit checks, defined in `.pre-commit-config.yaml`:
+
+- `isort` for sorting names of imported libraries
+- `black` - Python code formatter
+- `flake8` - combination of various code refactor tools like `pyflakes`, `pycodestyle`, checks for code styles.
+
+### Special Thanks To
+
+[Rémy Beumier](https://github.com/beumsk) - developer of the
 [memory game for productivity check](https://github.com/beumsk/Memory)
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+
 [stars-shield]: https://img.shields.io/github/stars/rizvansky/biproductive.svg?style=flat&logo=appveyor
+
 [stars-url]: https://github.com/rizvansky/biproductive/stargazers
+
 [issues-shield]: https://img.shields.io/github/issues/rizvansky/biproductive.svg?style=flat&logo=appveyor
 [issues-url]: https://github.com/rizvansky/biproductive/issues
 [license-shield]: https://img.shields.io/github/license/rizvansky/biproductive.svg?style=flat
