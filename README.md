@@ -54,6 +54,8 @@ between habits and user's performance, and makes personal recommendations.
 is the link to the RUP Artifact where you can find the list of stakeholders and their roles, functional and 
 non-functional requirements planned features, and other design specifications.
 
+Also, you can see the design development history [here](./docs/DESIGN_DEVELOPMENT.MD).
+
 ## Contributing
 We appreciate all contributions. If you are planning to contribute back bug-fixes, please do so without any further 
 discussion.
