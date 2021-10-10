@@ -5,8 +5,10 @@ from datetime import timezone
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 
+
 from productivity.scripts import load_last_n_days_productivity_checks, add_productivity_specified_day
 from habits.scripts import load_last_n_days_habit_usage, track_habits_specified_day
+
 from .scripts import correlation
 
 
@@ -24,5 +26,9 @@ def home_view(request):
             "brain_chart": json.dumps(week_productivity),
             "habit_table_data": json.dumps(week_habit_usage),
             "habit_names": list(week_habit_usage[0].keys()),
+            # Do not touch this - this json it passed to datatables.js for correctly rendering in order name of columns
+            "datatables_js_cols": json.dumps(
+                {"cols": list(week_habit_usage[0].keys())}
+            ),
         },
     )
