@@ -7,7 +7,7 @@ usage.
 
 The guest user could proceed to the login or registration pages.
 
-![](../docs/use_case_diagram.jpg)
+![](../docs/use-case-diagram.jpg)
 
 ### 01.09.2021. Created a [sketch of an application design](../docs/design_sketch.pdf)
 ### 06.09.2021. Created a low fidelity prototype of an application
@@ -27,11 +27,16 @@ possibility of creating a report.
 
 It was assumed that the user would be able to log in by email and password
 
-![](../docs/login_page_figma.png) 
+![](../docs/login_page_figma.png)
 
 * Home page
 
-Compared to the low-fidelity prototype, the structure has changed a little and on the main page we will have all the 
+Compared to the low-fidelity prototype, the structure has changed a little and on the main page we will have all the
 main statistics of the user for the last few days
 
 ![](../docs/home_page_figma.png)
+
+### 10.09.2021. Refactoring use case diagram
+
+![](../docs/use-case-diagram-updated.png)
+*Adding user stories with playing web game and downloading report* 
