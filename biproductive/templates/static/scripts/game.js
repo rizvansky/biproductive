@@ -269,7 +269,7 @@ function gameLogic(e) {
                     finalElt.innerHTML = "You won " + score + " points <br> in " + time + " seconds";
 
                     postScore("/productivity/", {"prod_score": score}).then((data) => {
-                        console.log("Send ", data, "to django");
+                        console.log("");
                     })
                     postElt.classList.remove("hidden");
                 }
