@@ -9,6 +9,7 @@
     <!--Main part-->
     {{ brain_chart|json_script:"brain_chart" }}
     {{ habit_table_data|json_script:'habit_table_data' }}
+    {{ datatables_js_cols| json_script:'datatables_js_cols' }}
 
     <div class="modal-body row">
         <div class="col-md-6 text-center">
