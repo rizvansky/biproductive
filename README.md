@@ -68,13 +68,12 @@ In the storage layer we have used 2 databased:
 
 ## How to deploy the application
 
-- Locally
-    - You should have Docker and Docker Compose installed.
+-   Locally
+    -   You should have Docker and Docker Compose installed.
 
-    - Go to the project folder.
+    -   Go to the project folder.
 
-    - Rename .env.example to .env and fill the ```SECRET_KEY``` environment variable. For example, you can use
-      https://djecrety.ir) to generate the secret key.
+    -   Rename .env.example to .env and fill the ```SECRET_KEY``` environment variable. For example, you can use (https://djecrety.ir) to generate the secret key.
       
     -   Put .env file to ```./biproductive/biproductive``` directory.
         
