@@ -1,5 +1,4 @@
-"""
-WSGI config for biproductive project.
+"""WSGI config for biproductive project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
