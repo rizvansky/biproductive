@@ -40,14 +40,14 @@ between habits and user's performance, and makes personal recommendations.
 ## How to deploy the application
 
 -   Locally
-  - You should have Docker and Docker Compose installed.
-  - Go to the project folder.
-  - Rename .env.example to .env and fill the ```SECRET_KEY``` environment variable. For example, you can use
+    - You should have Docker and Docker Compose installed.
+    - Go to the project folder.
+    - Rename .env.example to .env and fill the ```SECRET_KEY``` environment variable. For example, you can use
       https://djecrety.ir) to generate the secret key.
       
-  - Put .env file to ```./biproductive/biproductive``` directory.
-  - Run ```docker-compose up --build```.
-  - An application will be launched at ```0.0.0.0:8000``` address.
+    - Put .env file to ```./biproductive/biproductive``` directory.
+    - Run ```docker-compose up --build```.
+    - An application will be launched at ```0.0.0.0:8000``` address.
 -   Heroku
     - If you want to deploy this application on your own Heroku host, read [HEROKU.MD](docs/HEROKU.MD).
 
