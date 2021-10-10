@@ -92,6 +92,10 @@ In the storage layer we have used 2 databased:
 -   HTML
 -   Bootstrap
 
+## SOLID principles and design patterns
+[Here](./docs/PATTERNS.MD) you can see a description of how we used SOLID principles and the information about the 
+design patterns.
+
 ## RUP Artifact
 
 [Here](https://docs.google.com/document/d/14AMeCV4WJotkQ8lvZcl2u_bB66lMKmu4/edit?usp=sharing&ouid=109541784549585358096&rtpof=true&sd=true) 
